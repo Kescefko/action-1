@@ -16,6 +16,7 @@ jobs:
               run: sleep 30
 
     test_job_2:
+        needs: build_job_1
         runs-on: ubuntu-latest
         steps:
             - name: Sleep for 10 seconds
@@ -28,6 +29,10 @@ jobs:
               run: sleep 30
     
     deploy_job_2:
+        needs: [
+          test_job_2,
+          build_job_1
+        ]
         runs-on: ubuntu-latest
         steps:
             - name: Read File
