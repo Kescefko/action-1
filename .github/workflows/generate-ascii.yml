@@ -1,6 +1,6 @@
 name: Genereati ASCII Artwork
 
-on: push
+on: workflow_dispatch
 
 jobs:
     build_job_1:
